@@ -1,0 +1,19 @@
+[package]
+name = "antico-gateway"
+version = "3.1.0"
+edition = "2021"
+description = "Dual-role OpenAI-compatible API proxy with zero credential leakage and unified kernel entry point"
+
+[dependencies]
+antico-core = { path = "../antico-core" }
+antico-memory = { path = "../antico-memory" }
+antico-brain = { path = "../antico-brain" }
+antico-agents = { path = "../antico-agents" }
+antico-execution = { path = "../antico-execution" }
+antico-verification = { path = "../antico-verification" }
+antico-learning = { path = "../antico-learning" }
+antico-discovery = { path = "../antico-discovery" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }
+tokio = { workspace = true }

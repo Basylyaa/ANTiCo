@@ -1,0 +1,12 @@
+[package]
+name = "antico-memory"
+version = "3.1.0"
+edition = "2021"
+description = "In-process L0-L4 memory contract with AFIT and lock-free concurrent MPSC write queue"
+
+[dependencies]
+antico-core = { path = "../antico-core" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }
+tokio = { workspace = true }

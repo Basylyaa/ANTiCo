@@ -1,0 +1,38 @@
+# Multi-stage Containerfile for compiling the Rust backend daemon and cli
+# STAGE 1: Builder
+FROM rust:1.75-slim AS builder
+
+WORKDIR /usr/src/antico
+
+# Copy Cargo configuration & dependency resolution definitions
+COPY Cargo.toml ./
+COPY crates/ crates/
+
+# Build release workspace
+RUN cargo build --release
+
+# STAGE 2: Runtime Minimal Baseline Image
+FROM debian:bookworm-slim
+
+WORKDIR /app
+
+# Install runtime system library dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy compiled binaries from builder stage
+COPY --from=builder /usr/src/antico/target/release/antico-cli /usr/local/bin/antico-cli
+
+# Create data directory with standard permissions for persistence
+RUN mkdir -p /var/lib/antico/data && chmod 700 /var/lib/antico/data
+
+# Environment configuration defaults
+ENV ANTICO_PORT=2020
+ENV ANTICO_HOST=0.0.0.0
+ENV ANTICO_DATA_DIR=/var/lib/antico/data
+
+EXPOSE 2020
+
+# Run the async TCP daemon server directly on startup
+CMD ["antico-cli", "daemon"]

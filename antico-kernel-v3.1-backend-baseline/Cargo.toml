@@ -1,0 +1,21 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/antico-core",
+    "crates/antico-kernel",
+    "crates/antico-memory",
+    "crates/antico-gateway",
+    "crates/antico-brain",
+    "crates/antico-agents",
+    "crates/antico-execution",
+    "crates/antico-verification",
+    "crates/antico-learning",
+    "crates/antico-discovery",
+    "crates/antico-cli",
+]
+
+[workspace.dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1", features = ["sync", "rt", "macros", "time"] }
+sha2 = "0.10"

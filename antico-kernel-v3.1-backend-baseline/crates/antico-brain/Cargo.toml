@@ -1,0 +1,12 @@
+[package]
+name = "antico-brain"
+version = "3.1.0"
+edition = "2021"
+description = "Cognitive coordinator, intent perception, and planning engine"
+
+[dependencies]
+antico-core = { path = "../antico-core" }
+antico-memory = { path = "../antico-memory" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }

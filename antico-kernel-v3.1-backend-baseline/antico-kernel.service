@@ -1,0 +1,20 @@
+[Unit]
+Description=ANTICO Knowledge Engine & Kernel Daemon (v3.1)
+After=network.target
+Requires=network.target
+
+[Service]
+Type=simple
+Environment=ANTICO_OWNER_TOKEN=
+Environment=ANTICO_PORT=2020
+Environment=ANTICO_HOST=0.0.0.0
+Environment=ANTICO_DATA_DIR=/var/lib/antico/data
+ExecStart=/usr/local/bin/antico-cli daemon
+Restart=always
+RestartSec=5
+LimitNOFILE=65536
+User=root
+WorkingDirectory=/var/lib/antico
+
+[Install]
+WantedBy=multi-user.target

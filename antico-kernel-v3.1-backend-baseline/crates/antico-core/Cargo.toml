@@ -1,0 +1,11 @@
+[package]
+name = "antico-core"
+version = "3.1.0"
+edition = "2021"
+description = "Domain primitives and constitutional traits for ANTICO Kernel"
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }
+tokio = { workspace = true }

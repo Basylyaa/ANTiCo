@@ -1,0 +1,11 @@
+[package]
+name = "antico-kernel"
+version = "3.1.0"
+edition = "2021"
+description = "Core async Tokio daemon and engine primitives for ANTICO"
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }
+tokio = { workspace = true }

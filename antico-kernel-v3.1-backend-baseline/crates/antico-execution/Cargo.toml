@@ -1,0 +1,12 @@
+[package]
+name = "antico-execution"
+version = "3.1.0"
+edition = "2021"
+description = "Task distributor with weighted scoring and Bayesian Beta confidence updates"
+
+[dependencies]
+antico-core = { path = "../antico-core" }
+antico-agents = { path = "../antico-agents" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }

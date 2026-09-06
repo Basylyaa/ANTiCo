@@ -1,0 +1,14 @@
+[package]
+name = "antico-cli"
+version = "3.1.0"
+edition = "2021"
+description = "CLI Bootstrap and Admin utility for ANTICO Kernel v3.1"
+
+[dependencies]
+antico-core = { path = "../antico-core" }
+antico-memory = { path = "../antico-memory" }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+tokio = { workspace = true, features = ["full"] }
+sha2 = { workspace = true }
+socket2 = { version = "0.5", features = ["all"] }
